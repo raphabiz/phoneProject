@@ -38,16 +38,17 @@ public class MobileApp
        this.appsize = appsize;
     }
     
-    public Phone getPhone() {
-       return phone;
+    public String getPhone() {
+       return phone.toString();
     }
 
     public void setPhone(Phone phone) {
        this.phone = phone;
     }
-    
+ 
     public String toString() {
        return "App : " + this.getAppName() + " Size : " + this.getAppSize() +" Mo";
     }
+    
 }
 

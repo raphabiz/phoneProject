@@ -33,8 +33,10 @@ import org.junit.jupiter.api.Test;
  */
 public class MobileAppTest
 {
-    private Phone phone1;
-    private MobileApp mobileAp1;
+	/*
+	 * private Phone phone1; private MobileApp mobileAp1; private MobileApp
+	 * mobileAp2;
+	 */
 
     // Définissez ici les variables d'instance nécessaires à vos engagements;
     // Vous pouvez également les saisir automatiquement du présentoir
@@ -57,8 +59,10 @@ public class MobileAppTest
     @BeforeEach
     public void setUp() // throws java.lang.Exception
     {
-        phone1 = new Phone();
-        mobileAp1 = new MobileApp();
+		/*
+		 * phone1 = new Phone(); mobileAp1 = new MobileApp(); mobileAp2 = new
+		 * MobileApp();
+		 */
     }
 
     /**
@@ -88,14 +92,15 @@ public class MobileAppTest
         mobileAp1.setAppSize(26.0);
         assertEquals(26.0, mobileAp1.getAppSize(), 0.1);
     }
-
+    
     @Test
-    public void testFixture()
+    public void testGetPhone()
     {
-        mobileAp1.setAppName("waze");
-        mobileAp1.setAppSize(10.0);
-        phone1.setMobileApps(mobileAp1);
-        assertEquals("Phone : default name Battery : 100% Memory size : 0.0 Mo [App : call Size : 26.0 Mo, App : messages Size : 20.0 Mo, App : waze Size : 10.0 Mo]", phone1.toString());
+        MobileApp mobileAp1 = new MobileApp();
+        Phone phone1 = new Phone();
+        mobileAp1.setPhone(phone1);
+        assertEquals("Phone : default name Battery : 100% Memory size : 0.0 Mo "
+        		+ "[App : call Size : 26.0 Mo, App : messages Size : 20.0 Mo]", mobileAp1.getPhone());
     }
 }
 

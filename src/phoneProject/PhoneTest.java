@@ -2,6 +2,7 @@ package phoneProject;
 
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,9 @@ public class PhoneTest
     // du présentoir (les objets sans constructeur, comme int, float, etc.).
     protected double fValeur1;
     protected double fValeur2;
+    private Phone phone1;
+    private MobileApp mobileAp1;
+    private MobileApp mobileAp2;
 
     /**
      * Constructeur de la classe-test PhoneTest
@@ -57,6 +61,9 @@ public class PhoneTest
     public void setUp() // throws java.lang.Exception
     {
         // Initialisez ici vos engagements
+    	phone1 = new Phone();
+        mobileAp1 = new MobileApp();
+        mobileAp2 = new MobileApp();
     }
 
     /**
@@ -78,7 +85,14 @@ public class PhoneTest
         phone2.setMemorySize(50.0);
         assertEquals("Phone : My phone Battery : 100% Memory size : 50.0 Mo [App : call Size : 26.0 Mo, App : messages Size : 20.0 Mo]", phone2.toString());
     }
-
+    @Test
+    public void testSetBattery()
+    {
+        Phone phone1 = new Phone();
+        phone1.setBattery(98);
+        assertEquals(98, phone1.getBattery());
+    }
+    
     @Test
     public void testGetMemorySize()
     {
@@ -86,4 +100,19 @@ public class PhoneTest
         phone1.setMemorySize(50.0);
         assertEquals(50.0, phone1.getMemorySize(), 0.1);
     }
+    
+    @Test
+    public void testFixture()
+    {
+        mobileAp1.setAppName("waze");
+        mobileAp1.setAppSize(10.0);
+        phone1.setMobileApps(mobileAp1);
+        mobileAp2.setAppName("waze");
+        mobileAp2.setAppSize(10.0);
+        phone1.setMobileApps(mobileAp2);     
+        assertEquals("Phone : default name Battery : "
+        		+ "100% Memory size : 0.0 Mo [App : call Size : 26.0 Mo, App : messages Size : "
+        		+ "20.0 Mo, App : waze Size : 10.0 Mo]" ,phone1.toString());
+    }
+    
 }
