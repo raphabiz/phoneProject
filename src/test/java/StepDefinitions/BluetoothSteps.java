@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import main.app.Phone;
 
-public class Bluetooth {
+public class BluetoothSteps {
 	private Phone muskphone;
 
 	@Given("bluetooth is on")
